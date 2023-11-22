@@ -1,42 +1,35 @@
-/* Задание на урок:
+"use strict";
 
-1) Создать переменную numberOfFilms и в неё поместить ответ от пользователя на вопрос:
-'Сколько фильмов вы уже посмотрели?'
+if (4 == 4) {
+  console.log('Правда');
+} else {
+  console.log('Обман');
+}
 
-2) Создать объект personalMovieDB и в него поместить такие свойства:
-    - count - сюда передается ответ на первый вопрос
-    - movies - в это свойство поместить пустой объект
-    - actors - тоже поместить пустой объект
-    - genres - сюда поместить пустой массив
-    - privat - в это свойство поместить boolean(логическое) значение false
+const num = 50;
 
-3) Задайте пользователю по два раза вопросы:
-    - 'Один из последних просмотренных фильмов?'
-    - 'На сколько оцените его?'
-Ответы стоит поместить в отдельные переменные
-Записать ответы в объект movies в формате: 
-    movies: {
-        'logan': '8.1'
-    }
+if (num < 49) {
+  console.log('error');
+} else if (num > 100) {
+  console.log('Багато');
+} else {
+  console.log('OK!');
+}
 
-Проверить, чтобы все работало без ошибок в консоли */
+(num === 50) ? console.log('Ok!') : console.log('error'); // тернарний оператор - три аргумента
 
-'use strict';
-
-const numberOfFilms = +prompt('Скільки фільмів ви уже подивились?', '');
-const personalMovieDB = {
-  count: numberOfFilms,
-  movies: {},
-  actors: {},
-  genres: [],
-  privat: false
-};
-
-const a = prompt('Один з останні переглянутих фільмів?', ''),
-      b = +prompt('Яку оцінку поставите цьому фільму?', ''),
-      c = prompt('Один з останні переглянутих фільмів?', ''),
-      d = +prompt('Яку оцінку поставите цьому фільму?', '');
-        
-personalMovieDB.movies[a] = b;
-personalMovieDB.movies[c] = d;
-console.log(personalMovieDB);
+const my = 50;
+switch (my) {
+  case 49:
+    console.log('error');
+    break;
+  case 100:
+    console.log('error');
+    break;
+  case 50:
+    console.log('it is good');
+    break;
+  default:
+    console.log('no resault');
+    break;
+}
