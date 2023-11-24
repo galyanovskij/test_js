@@ -1,88 +1,17 @@
-"use strict";
+/* Задание на урок:
 
-let num = 50;
+1) Автоматизировать вопросы пользователю про фильмы при помощи цикла
 
-while (num <=55) {
-  console.log(num);
-  num++;
-}
+2) Сделать так, чтобы пользователь не мог оставить ответ в виде пустой строки,
+отменить ответ или ввести название фильма длинее, чем 50 символов. Если это происходит - 
+возвращаем пользователя к вопросам опять
 
-do {
-  console.log(num);
-  num++;
-} while (num < 55);
+3) При помощи условий проверить  personalMovieDB.count, и если он меньше 10 - вывести сообщение
+"Просмотрено довольно мало фильмов", если от 10 до 30 - "Вы классический зритель", а если больше - 
+"Вы киноман". А если не подошло ни к одному варианту - "Произошла ошибка"
 
-for (let i = 1; i<10; i++ ) {
-  if (i === 5) {
-    // break; зупмняє цикл
-    continue; // вирізає частину з циклу
-  }
-  console.log(i);
-}
+4) Потренироваться и переписать цикл еще двумя способами*/
 
-// *
-// **
-// ***
-// ****
-// *****
-let star = '*';
-let a = [];
-for (let i = 1; i<7; i++) {
-  for (let j = 0; j<i; j++) {
-    a[j] = star;
-  }
-  // myVar = a.toString();
-  console.log(a.join(''));
-}
+'use strict';
 
-let result = '';
-for (let i=1; i<7; i++) {
-  for (let j=0; j<i; j++) {
-    result += '*';
-  }
-  result += '\n';
-}
-console.log(result);
-
-first: for (let i = 1; i<3; i++){
-  console.log(`Firs level: ${i}`);
-  for (let j = 1; j<3; j++){
-    console.log(`Second level: ${j}`);
-    for (let k = 1; k<5; k++){
-      if (k === 3) break first;
-      console.log(`Third level: ${k}`);
-    }
-  }
-}
-
-for (let i=5; i<11; i++) {
-  console.log(i);
-}
-
-for (let i=20; i>9; i--) {
-  if (i===13) break;
-  console.log(i);
-}
-
-for (let i=2; i<11; i++) {
-  if (i%2!=0) continue;
-  console.log(i);
-}
-
-for (let i = 2; i <= 16; i++) {
-  if (i % 2 === 0) {
-      continue;
-  } else {
-      console.log(i);
-  }
-}
-
-let i = 2
-while (i >= 2 && i <= 16  ) {
-    if (i % 2 === 0) {
-      continue;
-  } else {
-      console.log(i);
-  }
-  i++;
-}
+// Код возьмите из предыдущего домашнего задания
