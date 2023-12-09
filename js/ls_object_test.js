@@ -17,30 +17,73 @@
 // Заметьте, что возраст и языки подставляются автоматически из объекта, а языки всегда в верхнем регистре (большими буквами). Если данные в объекте поменяются, то и сообщение тоже изменится.
 
 const personalPlanPeter = {
-  name: "Peter",
-  age: "29",
-  skills: {
-      languages: ['ru', 'eng'],
-      programmingLangs: {
-          js: '20%',
-          php: '10%'
-      },
-      exp: '1 month'
-  }
+    name: "Peter",
+    age: "29",
+    skills: {
+        languages: ['ru', 'eng'],
+        programmingLangs: {
+            js: '20%',
+            php: '10%'
+        },
+        exp: '1 month'
+    },
 };
 
 function showExperience(plan) {
-    const showEnd = {...plan};
-    return showEnd;
+    const {exp} = plan.skills;
+    return exp;
 }
 
+showExperience(personalPlanPeter);
 console.log(showExperience(personalPlanPeter));
-console.log(personalPlanPeter.skills.exp);
-console.log(personalPlanPeter);
-console.log(typeof(showExperience(personalPlanPeter)));
-
 
 
 function showProgrammingLangs(plan) {
 
 }
+
+// рішення Івана
+const personalPlanPeter = {
+    name: "Peter",
+    age: "29",
+    skills: {
+        languages: ['ru', 'eng'],
+        programmingLangs: {
+            js: '20%',
+            php: '10%'
+        },
+        exp: '1 month'
+    },
+    showAgeAndLangs: function(plan) {
+        const {age} = plan;
+        const {languages} = plan.skills;
+        let str = `Мне ${age} и я владею языками: `;
+
+        languages.forEach(function(lang) {
+            str += `${lang.toUpperCase()} `;
+        });
+
+        return str;
+    }
+};
+
+personalPlanPeter.showAgeAndLangs(personalPlanPeter);
+
+function showExperience(plan) {
+    const {exp} = plan.skills;
+    return exp;
+}
+
+showExperience(personalPlanPeter);
+
+function showProgrammingLangs(plan) {
+    let str = '';
+    const {programmingLangs} = plan.skills;
+    for (let key in programmingLangs) {
+        str += `Язык ${key} изучен на ${programmingLangs[key]}\n`
+    }
+
+    return str;
+}
+
+showProgrammingLangs(personalPlanPeter);
