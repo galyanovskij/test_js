@@ -17,10 +17,24 @@
 const movieDB = {
     movies: [
         "Логан",
-        "Лига справедливости",
+        "Лига справедливости777",
         "Ла-ла лэнд",
         "Одержимость",
         "Скотт Пилигрим против..."
     ]
 };
 
+const promo__adv = document.querySelector('.promo__adv'),
+    promo__genre = document.querySelector('.promo__genre'),
+    promo__bg = document.querySelector('.promo__bg'),
+    list_movies = document.querySelector('.promo__interactive-list'),
+    movies = list_movies.querySelectorAll('li');
+promo__adv.remove();
+promo__genre.innerHTML = 'Драма'; 
+promo__bg.style.background = "url('img/bg.jpg')";
+movies[1].style.backgroundColor = 'red';
+movieDB.movies.sort();
+movieDB.movies.forEach((item, i) =>{
+    movies[i].innerHTML = ` ${i + 1}. ${movieDB.movies[i]}`;
+//   console.log(`Любимый жанр ${i + 1} - это ${item}`);
+});  
