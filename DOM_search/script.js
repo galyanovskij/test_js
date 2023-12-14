@@ -24,10 +24,81 @@
 
       // console.log(document.body.childNodes); //щоб отримати лише елементи  -потрібний перебор. Тут не працює forEch...
 
-      for (let node of document.body.childNodes) {
-        if (node.nodeName == '#text') { // коли знаходимо #text перериваємось і ідемо шукати далі
-          continue;
-        }
-        console.log(node);
-      }
+    //   for (let node of document.body.childNodes) {
+    //     if (node.nodeName == '#text') { // коли знаходимо #text перериваємось і ідемо шукати далі
+    //       continue;
+    //     }
+    //     console.log(node);
+    //   }
 
+    // // функція піднгесення до степеня
+
+    // function pow(x, n){
+    //   let resalt = 1;
+    //   for (i = 0; i < n ; i++) {
+    //     resalt *= x;
+    //   }
+    //   return resalt;
+    // }
+
+    // console.log(pow(2, 2)); // 4
+
+    // // код через рекурсію - ,база, шаг, глибина
+    // function pow(x, n){
+    //   if (n === 1) {
+    //     return x;
+    //   } else {
+    //     return x * pow(x, n - 1);
+    //   }
+    // }
+
+    // console.log(pow(2, 2));
+
+    let students = {
+        js:[{
+          name: 'John',
+          progress: 100
+        }, {
+          name: 'Oleg',
+          progress: 80
+        }],
+        html: {
+          basic:[{
+            name: 'Olga',
+            progress: 70
+          }, {
+            name: 'Anna',
+            progress: 75
+          }],
+          pro: [{
+            name: 'Ivan',
+            progress: 90
+          }, {
+            name: 'Viki',
+            progress: 95
+          }]
+        }
+    };
+    
+  function getTotalProgressByIteration(data)  {
+    let total = 0;
+    let students = 0;
+    for (let course of Object.values(data)) {
+      if (Array.isArray(course)){ //перевірємо чи це у нас масив
+        students += course.length;
+        for (let i = 0; i < course.length; i++) {
+          total += course[i].progress;
+        }
+        } else { // коли у нас не масив а обєкт
+          for (let subCourse of Object.values(course)) {
+            students += subCourse.length;
+            for (let i = 0; i < subCourse.length; i++) {
+              total += subCourse[i].progress;
+            }
+          }
+        }
+      }
+    return total / students;
+  }
+    
+    console.log(getTotalProgressByIteration(students));
