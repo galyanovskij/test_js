@@ -1,28 +1,28 @@
 "use strict"
 
-const btns = document.querySelectorAll('button'),
-      wrapper = document.querySelector('.btn-block'),
-      btn = document.querySelector('.btn');
-let timerId4, i = 0;
-    //порста анімація
-    function myAnimation() {
-      const elem = document.querySelector('.box');
-      let pos = 0;
-      //функція, яка буде запускатись через певний час
-      const id = setInterval(frame, 10);
-      function frame() {
-        if (pos == 400){
-          clearInterval(id);
-          console.log('END');
-        } else {
-          pos++;
-          elem.style.top = pos +'px';
-          elem.style.left = pos +'px';
-        }
-      }
-    }
-    // трігер запуску функції буде клік
-    btn.addEventListener('click', myAnimation);
+// const btns = document.querySelectorAll('button'),
+//       wrapper = document.querySelector('.btn-block'),
+//       btn = document.querySelector('.btn');
+// let timerId4, i = 0;
+//     //порста анімація
+//     function myAnimation() {
+//       const elem = document.querySelector('.box');
+//       let pos = 0;
+//       //функція, яка буде запускатись через певний час
+//       const id = setInterval(frame, 10);
+//       function frame() {
+//         if (pos == 400){
+//           clearInterval(id);
+//           console.log('END');
+//         } else {
+//           pos++;
+//           elem.style.top = pos +'px';
+//           elem.style.left = pos +'px';
+//         }
+//       }
+//     }
+//     // трігер запуску функції буде клік
+//     btn.addEventListener('click', myAnimation);
 
       // btn.addEventListener('click', () =>{
       //   // const timerId4 = setTimeout(logger, 2000);  
@@ -121,3 +121,27 @@ let timerId4, i = 0;
 // function logger() {
 //   console.log("text 2000");
 // }
+
+    // працюємо з датою
+    // let newDate = Date(0); //1970
+    // let newDate = new Date(2023, 10, 18, 20);
+    let newDate = new Date();
+    // console.log(newDate.setHours(5)); //встановлюємо годиниж
+    console.log(newDate);
+    // console.log(newDate.getFullYear());
+    // console.log(newDate.getMonth());
+    // console.log(newDate.getDay());
+    // console.log(newDate.getDate());
+    // console.log(newDate.getHours());
+    // console.log(newDate.getMinutes());
+    // console.log(newDate.getSeconds());
+    console.log(newDate.getTime()); //1702933827388
+
+        // виміряємо час виконання цикла
+        let start = new Date();
+        for (let i = 1; i <= 100000; i++){
+          let some = i ** 3; // підносимо до 3-го степеню
+        }
+
+        let end = new Date();
+        console.log(`Час виконання циклу ${end-start}`);
