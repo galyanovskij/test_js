@@ -119,5 +119,23 @@ class Rectangle {
   }
 }
 
+// створимо новий клас, який буде наслідувати extends попередній
+class ColoredRectangleWithText extends Rectangle {
+  constructor(width, height, text, bgColor){
+    super(width, height); // автоматично бере конструктор батька this.width = width; this.height = height;, вписуємо властивості які нам потрібні
+    this.text = text;
+    this.bgColor = bgColor;
+  }
+
+  showMyProps(){
+    console.log(`Текст: ${this.text}, колір ${this.bgColor}`);
+  }
+}
+const div = new ColoredRectangleWithText(100, 200, 'Ytllo Oleg', 'red');
+
+div.showMyProps();
+console.log(div.calcArea());
+
+
 const square = new Rectangle(100, 50);
-console.log(square);
+console.log(square.calcArea());
