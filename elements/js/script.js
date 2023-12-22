@@ -139,3 +139,27 @@ console.log(div.calcArea());
 
 const square = new Rectangle(100, 50);
 console.log(square.calcArea());
+
+      //REST
+
+      const log = function(a, b, ...rest) {//rest може називатись як завгодно
+        console.log(a, b, rest);
+      }
+
+      log('food', 'mother', 'sibligs', 'cat', ' dog', 'meal'); //food mother [ 'sibligs', 'cat', ' dog', 'meal' ]
+      // зворотня дія - з масива ряд чисел Spread syntax (...)
+      // Math.max. найбільше число зі списку
+      let arr = [3, 5, 1];
+      alert( Math.max(...arr) ); // 5 (оператор "раскрывает" массив в список аргументов)
+
+      let arr1 = [1, -2, 3, 4];
+      let arr2 = [8, 3, -8, 1];
+
+      alert( Math.max(...arr1, ...arr2) ); // 8
+
+      // оператор за замовчуванням
+      function calcOrDouble (num, basis = 2) { //ES6  використвовує для замовчування = 2 
+        // basis = basis || 2; // 2 буде використано, якщо у функцію не передати другий аргумент - старий варіант
+        console.log(num * basis);
+      }
+      calcOrDouble(3);
