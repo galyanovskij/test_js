@@ -163,3 +163,32 @@ console.log(square.calcArea());
         console.log(num * basis);
       }
       calcOrDouble(3);
+
+
+      const person = {
+        name: 'Oleg',
+        age: 25,
+        phone: '+80562586478'
+      };
+    //передаємо дані на сервер
+      console.log(JSON.stringify(person));
+      console.log(JSON.parse(JSON.stringify(person)));
+    //парсимо дані з сервера
+    console.log(JSON.parse('{"name":"Oleg","age":25,"phone":"+80562586478"}'));
+
+    // робимо глибоку копію обєкта
+    const persons = {
+      name: 'Oleg',
+      age: 25,
+      phone: '+80562586478',
+      parents: {
+        mom: 'Olga',
+        dad: 'Bob'
+      }
+    };
+
+    const clone = JSON.parse(JSON.stringify(persons)); //отримуємо незалежний обєкт clone
+    // console.log(clone);
+    clone.parents.mom = 'Anna';
+    console.log(persons);
+    console.log(clone);
