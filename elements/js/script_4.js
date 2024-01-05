@@ -9,7 +9,7 @@
 
   console.log(sortNames);
 
-  // MAP - дозволяє pмінювати елементи в масиві
+  // MAP - дозволяє змінювати елементи в масиві
   // на виході отримаємо новий масив зізміненими даними
   let answers = ['OlEh', 'AnnA', 'Hello'];
   const result = answers.map(item => item.toLocaleLowerCase());
