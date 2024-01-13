@@ -1,131 +1,53 @@
-"use strict";
+'use strict'
 
-const person = {
-  name: 'Alex',
-  age: 25,
-  old: {
-    name: 'Oleg',
-    age: 40
-  },
-  get userAge() {
-    return this.age;
-  },
-  set userAge(num) {
-    this.age = num;
-  }
-
-};
-
-console.log(person.userAge); //25 використали get
-console.log(person.userAge = 40); //використали set
-console.log(person.userAge); //40
-console.log(person.old.name); //40
-
-// інкапсуляція - захист даних
-// function User(name, age) {
-//   this.name = name;
-//   this.age = age;
-
-//   this.say = function() {
-//     console.log(`Імя користувача: ${name}, вік користувача: ${age}`);
-//   };
+// try {
+//   console.log("it's OK");
+//   console.log(item);
+//   console.log("next code");
+// } catch(error) {
+//   console.log(error);
+// } finally {
+//   console.log('final message');
 // }
+// // console.log(item);
+// console.log('we jumped over error');
+// const btn = document.querySelector('#two_button');
+// try {
+//   const btn_first = document.querySelector('#my_button').addEventListener('click', () =>{
+//     if (btn_first.classList.contains('red')) {
+//       btn_first.classList.remove('red');
+//         } else {
+//           btn_first.classList.add('red');
+//         }
+//     console.log('its OK');
+//     const div = document.createElement('div');
+//     div.classList.add('wrapper'); 
+//     document.body.append(div);
+//     btn.classList.add('red');
+//     // btn_first.classList.add('blue');
+//   });
+// } catch {
+// console.log('its not OK');
+// }
+const data = [
+  {
+    id: 'box',
+    tag: 'div'
+  },
+  {
+    id: '',
+    tag: 'nav'
+  },
+  {
+    id: 'box',
+    tag: 'span'
+  } 
+]
 
-// const oleg = new User('Oleg', 45);
-// console.log(oleg.name);
-// console.log(oleg.age);
+data.forEach((blockObj, i) =>{
+  const block = document.createElement(blockObj.tag);
+  if (!blockObj.id) throw new Error(`В даних під номером ${i+1} немає id`);
+  block.setAttribute('id', blockObj.id );
+  document.body.append(block);
 
-// oleg.name = 'Alex';
-// oleg.age = 25;
-
-// oleg.say();
-// інкапсулюємо доступ ззовні
-function User(name, age) {
-  this.name = name;
-  let userAge = age;
-
-  this.say = function() {
-    console.log(`Імя користувача: ${this.name}, вік користувача: ${userAge}`);
-  };
-
-  this.getAge  = function() {
-    return userAge;
-  }
-  this.setAge  = function(age) {
-    if (typeof age === 'number' && age > 0 && age < 110){
-      userAge = age;
-    } else {
-      console.log('Хибне значення');
-    }
-    
-  };
-
-}
-
-const oleg = new User('Oleg', 45);
-console.log(oleg.name);
-console.log(oleg.getAge());
-
-// oleg.name = 'Alex';
-oleg.setAge(25);
-oleg.setAge(250);
-console.log(oleg.getAge());
-oleg.say();
-
-// перепишемо на class
-
-class User {
-    constructor(name, age) {
-      this.name = name;
-      this._age = age;
-    }
-
-  say() {
-    console.log(`Імя користувача: ${this.name}, вік користувача: ${this._age}`);
-  }
-
-  get age() {
-    return this._age;
-  }
-  set age(age) {
-    if (typeof age === 'number' && age > 0 && age < 110){
-      this._age = age;
-    } else {
-      console.log('Хибне значення');
-    }
-    
-  }
-
-}
-
-const oleg = new User('Oleg', 45);
-console.log(oleg.age);
-oleg.age = 99;
-console.log(oleg.age);
-oleg.say();
-
-// роболта з модулями
-// анонімна самовизивна функція
-const number = 1;
-
-(function(){
-  // створюємо васну область бачення
-  let number = 2;
-  console.log(number);
-  console.log(number +3);
-}())
-
-console.log(number);
-
-// створення обєктного інтерфейсу
-const user = (function(){
-  const privat = function(){
-    console.log('i am private');;
-  };
-  return {
-    seyHello: privat
-  };
-
-}());
-
-user.seyHello();  
+});
